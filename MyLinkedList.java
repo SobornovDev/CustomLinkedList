@@ -10,10 +10,10 @@ public class MyLinkedList {
     private int size = 0;
 
     public void add(int value) {
-        if (head == null) {
+        if (this.head == null) {
             this.head = new Node(value);
         } else {
-            Node temp = head;
+            Node temp = this.head;
 
             while(temp.getNext() != null) {
                 temp = temp.getNext();
@@ -24,15 +24,29 @@ public class MyLinkedList {
     }
 
     public String toString() {
-        Node head = this.head;
+        Node temp = this.head;
         int index = 0;
         int[] array = new int[size];
 
-        while (head != null) {
-            array[index++] = head.getValue();
-            head = head.getNext();
+        while (temp != null) {
+            array[index++] = temp.getValue();
+            temp = temp.getNext();
         }
         return Arrays.toString(array);
+    }
+
+    public int get(int index) {
+        Node temp = this.head;
+        int currentIndex = 0;
+        while (temp != null) {
+            if (currentIndex == index) {
+                return temp.getValue();
+            } else {
+                temp = temp.getNext();
+                currentIndex++;
+            }
+        }
+        throw new IllegalArgumentException();
     }
 
     private static class Node {
