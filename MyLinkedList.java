@@ -53,6 +53,10 @@ public class MyLinkedList {
         if (index >= size) {
             throw new IllegalArgumentException();
         }
+        if (index == 0) {
+            this.head = this.head.getNext();
+            size--;
+        }
         int currentIndex = 0;
         Node temp = this.head;
 
