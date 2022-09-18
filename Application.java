@@ -8,7 +8,9 @@ public class Application {
 
         System.out.println(linkedList);
         System.out.println(linkedList.get(1));
-        System.out.println(linkedList.get(4));
+
+        linkedList.remove(2);
+        System.out.println(linkedList);
 
     }
 }
