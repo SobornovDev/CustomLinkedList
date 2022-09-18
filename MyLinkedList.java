@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * @author : Sobornov Vladimir
  * @since : 17.09.2022
@@ -19,6 +21,18 @@ public class MyLinkedList {
             temp.setNext(new Node(value));
         }
         this.size++;
+    }
+
+    public String toString() {
+        Node head = this.head;
+        int index = 0;
+        int[] array = new int[size];
+
+        while (head != null) {
+            array[index++] = head.getValue();
+            head = head.getNext();
+        }
+        return Arrays.toString(array);
     }
 
     private static class Node {
